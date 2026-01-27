@@ -1,5 +1,5 @@
-import { db } from "@itsukis-products/db";
-import * as schema from "@itsukis-products/db/schema/auth";
+import { db } from "@itsukis-products/pagedeck-db";
+import * as schema from "@itsukis-products/pagedeck-db/schema/auth";
 import { env } from "@itsukis-products/env/server";
 import { polar, checkout, portal } from "@polar-sh/better-auth";
 import { betterAuth } from "better-auth";

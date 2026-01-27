@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "@itsukis-products/pagedeck-server",
   "type": "module",
   "main": "src/index.ts",
   "scripts": {
@@ -8,10 +8,10 @@
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server"
   },
   "dependencies": {
-    "@itsukis-products/api": "workspace:*",
-    "@itsukis-products/auth": "workspace:*",
-    "@itsukis-products/db": "workspace:*",
     "@itsukis-products/env": "workspace:*",
+    "@itsukis-products/pagedeck-api": "workspace:*",
+    "@itsukis-products/pagedeck-auth": "workspace:*",
+    "@itsukis-products/pagedeck-db": "workspace:*",
     "@orpc/openapi": "catalog:",
     "@orpc/server": "catalog:",
     "@orpc/zod": "catalog:",

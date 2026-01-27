@@ -3,8 +3,9 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "apps/*",
-      "packages/*"
+      "apps/pagedeck/*",
+      "packages/*",
+      "packages/pagedeck/*"
     ],
     "catalog": {
       "dotenv": "^17.2.2",
@@ -31,12 +32,12 @@
     "build": "turbo build",
     "check-types": "turbo check-types",
     "dev:native": "turbo -F native dev",
-    "dev:web": "turbo -F web dev",
-    "dev:server": "turbo -F server dev",
-    "db:push": "turbo -F @itsukis-products/db db:push",
-    "db:studio": "turbo -F @itsukis-products/db db:studio",
-    "db:generate": "turbo -F @itsukis-products/db db:generate",
-    "db:migrate": "turbo -F @itsukis-products/db db:migrate",
+    "dev:web": "turbo -F @itsukis-products/pagedeck-web dev",
+    "dev:server": "turbo -F @itsukis-products/pagedeck-server dev",
+    "db:push": "turbo -F @itsukis-products/pagedeck-db db:push",
+    "db:studio": "turbo -F @itsukis-products/pagedeck-db db:studio",
+    "db:generate": "turbo -F @itsukis-products/pagedeck-db db:generate",
+    "db:migrate": "turbo -F @itsukis-products/pagedeck-db db:migrate",
     "deploy": "turbo -F @itsukis-products/infra deploy",
     "destroy": "turbo -F @itsukis-products/infra destroy",
     "check": "oxlint && oxfmt --write",

@@ -1,5 +1,5 @@
 {
-  "name": "@itsukis-products/api",
+  "name": "@itsukis-products/pagedeck-db",
   "type": "module",
   "exports": {
     ".": {
@@ -9,23 +9,23 @@
       "default": "./src/*.ts"
     }
   },
-  "scripts": {},
+  "scripts": {
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:studio": "drizzle-kit studio",
+    "db:migrate": "drizzle-kit migrate"
+  },
   "dependencies": {
-    "@itsukis-products/auth": "workspace:*",
-    "@itsukis-products/db": "workspace:*",
     "@itsukis-products/env": "workspace:*",
-    "@orpc/client": "catalog:",
-    "@orpc/openapi": "catalog:",
-    "@orpc/server": "catalog:",
-    "@orpc/zod": "catalog:",
-    "@types/pg": "catalog:",
     "dotenv": "catalog:",
     "drizzle-orm": "catalog:",
+    "pg": "^8.17.1",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@itsukis-products/config": "workspace:*",
-    "hono": "catalog:",
+    "@types/pg": "catalog:",
+    "drizzle-kit": "^0.31.8",
     "typescript": "catalog:"
   }
 }

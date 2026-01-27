@@ -1,6 +1,6 @@
-import { createContext } from "@itsukis-products/api/context";
-import { appRouter } from "@itsukis-products/api/routers/index";
-import { auth } from "@itsukis-products/auth";
+import { createContext } from "@itsukis-products/pagedeck-api/context";
+import { appRouter } from "@itsukis-products/pagedeck-api/routers/index";
+import { auth } from "@itsukis-products/pagedeck-auth";
 import { env } from "@itsukis-products/env/server";
 import { OpenAPIHandler } from "@orpc/openapi/fetch";
 import { OpenAPIReferencePlugin } from "@orpc/openapi/plugins";

@@ -1,4 +1,4 @@
-import type { AppRouter } from "@itsukis-products/api/routers/index";
+import type { AppRouter } from "@itsukis-products/pagedeck-api/routers/index";
 import type { RouterClient } from "@orpc/server";
 
 import { env } from "@itsukis-products/env/web";

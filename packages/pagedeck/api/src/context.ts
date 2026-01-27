@@ -1,6 +1,6 @@
 import type { Context as HonoContext } from "hono";
 
-import { auth } from "@itsukis-products/auth";
+import { auth } from "@itsukis-products/pagedeck-auth";
 
 export type CreateContextOptions = {
   context: HonoContext;

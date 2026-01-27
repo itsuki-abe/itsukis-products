@@ -1,5 +1,5 @@
-import { db } from "@itsukis-products/db";
-import { todo } from "@itsukis-products/db/schema/todo";
+import { db } from "@itsukis-products/pagedeck-db";
+import { todo } from "@itsukis-products/pagedeck-db/schema/todo";
 import { eq } from "drizzle-orm";
 import z from "zod";
 
