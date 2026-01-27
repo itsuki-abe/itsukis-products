@@ -37,16 +37,16 @@ jobs:
         run: bun run check-types
 
       - name: Get DB Cert File
-        run: curl --create-dirs -o $HOME/.postgresql/root.crt '${{ env.ZEPHA_DATABASE_CERT_URL }}'
+        run: curl --create-dirs -o $HOME/.postgresql/root.crt '${{ env.PAGEDECK_DATABASE_CERT_URL }}'
         env:
-          ZEPHA_DATABASE_CERT_URL: ${{ secrets.ZEPHA_DATABASE_CERT_URL }}
+          PAGEDECK_DATABASE_CERT_URL: ${{ secrets.PAGEDECK_DATABASE_CERT_URL }}
 
       - name: Database Migration
         run: bun run db:migrate
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NODE_ENV: production
-        working-directory: ./packages/zepha/db
+        working-directory: ./packages/pagedeck/db
 
       - name: Deploy Application
         run: |
@@ -67,10 +67,10 @@ jobs:
           POLAR_SUCCESS_URL: ${{ vars.POLAR_SUCCESS_URL }}
           VITE_SERVER_URL: ${{ vars.VITE_SERVER_URL }}
           STAGE: prod
-          # zepha-lp
+          # pagedeck-lp
           NOCODB_API_TOKEN: ${{ secrets.NOCODB_API_TOKEN }}
-          ZEPHA_WAITLIST_DISCORD_WEBHOOK_URL: ${{ secrets.ZEPHA_WAITLIST_DISCORD_WEBHOOK_URL }}
+          PAGEDECK_WAITLIST_DISCORD_WEBHOOK_URL: ${{ secrets.PAGEDECK_WAITLIST_DISCORD_WEBHOOK_URL }}
           NOCODB_BASE_URL: ${{ vars.NOCODB_BASE_URL }}
-          NOCODB_ZEPHA_BASE_ID: ${{ vars.NOCODB_ZEPHA_BASE_ID }}
-          NOCODB_ZEPHA_WAITLIST_TABLE_ID: ${{ vars.NOCODB_ZEPHA_WAITLIST_TABLE_ID }}
-          VITE_ZEPHA_LP_ADOBE_FONT_ID: ${{ vars.VITE_ZEPHA_LP_ADOBE_FONT_ID }}
+          NOCODB_PAGEDECK_BASE_ID: ${{ vars.NOCODB_PAGEDECK_BASE_ID }}
+          NOCODB_PAGEDECK_WAITLIST_TABLE_ID: ${{ vars.NOCODB_PAGEDECK_WAITLIST_TABLE_ID }}
+          VITE_PAGEDECK_LP_ADOBE_FONT_ID: ${{ vars.VITE_PAGEDECK_LP_ADOBE_FONT_ID }}
