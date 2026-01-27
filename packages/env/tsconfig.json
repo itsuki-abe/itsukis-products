@@ -1,0 +1,3 @@
+{
+  "extends": "@itsukis-products/config/tsconfig.base.json"
+}
