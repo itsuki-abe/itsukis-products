@@ -10,7 +10,7 @@
 
 ## プロダクト一覧
 
-### PageDeck (Zepha)
+### PageDeck
 
 **ウィジェットベースのマイクロサイト専用ノーコードサービス**
 
@@ -51,9 +51,9 @@
 | インフラ | Cloudflare Workers, HyperDrive, R2 |
 
 #### ディレクトリ
-- `apps/zepha/web` - フロントエンド
-- `apps/zepha/server` - APIサーバー
-- `packages/zepha/*` - 共有パッケージ
+- `apps/pagedeck/web` - フロントエンド
+- `apps/pagedeck/server` - APIサーバー
+- `packages/pagedeck/*` - 共有パッケージ
 
 ---
 
@@ -105,7 +105,7 @@
 
 ```
 apps/
-  zepha/                # Zepha プロダクト
+  pagedeck/             # PageDeck プロダクト
     web/                # フロントエンド（TanStack Start）
     server/             # APIサーバー（Hono + oRPC）
   [future-product]/     # 将来のプロダクト
@@ -113,7 +113,7 @@ apps/
 packages/
   common/               # 全プロダクト共通
     config/             # 共通設定
-  zepha/                # Zepha専用パッケージ
+  pagedeck/             # PageDeck専用パッケージ
     api/                # oRPCルーター・プロシージャ
     auth/               # Better Auth設定
     db/                 # Drizzle ORMスキーマ
@@ -266,10 +266,10 @@ perf: パフォーマンス
 - **Cloudflare Workers環境**: `cloudflare:workers`から`env`をインポートして環境変数にアクセス
 - **スタイリング**: `cn()`ユーティリティでTailwindクラスを結合
 
-### Zepha固有
+### PageDeck固有
 - **oRPCのContext**: `createContext`でセッション情報を取得。`protectedProcedure`で認証必須化
-- **Better Auth**: `@itsukis-products/zepha-auth`からエクスポート。Organization・MagicLink・Polar連携あり
-- **TanStack Start**: ルーティングは`apps/zepha/web/src/routes/`に配置。ファイルベースルーティング
+- **Better Auth**: `@itsukis-products/pagedeck-auth`からエクスポート。Organization・MagicLink・Polar連携あり
+- **TanStack Start**: ルーティングは`apps/pagedeck/web/src/routes/`に配置。ファイルベースルーティング
 
 ---
 

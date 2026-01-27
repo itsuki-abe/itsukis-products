@@ -65,13 +65,13 @@ bunx turbo run build --graph
 ```
 
 ### ルート一覧（TanStack Start）
-`apps/zepha/web/src/routes/`を解析
+`apps/pagedeck/web/src/routes/`を解析
 
 ### APIエンドポイント（oRPC）
-`packages/zepha/api/src/routers/`を解析
+`packages/pagedeck/api/src/routers/`を解析
 
 ### DBスキーマ（Drizzle）
-`packages/zepha/db/src/schema/`を解析
+`packages/pagedeck/db/src/schema/`を解析
 
 ## 原則
 

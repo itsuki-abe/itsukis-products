@@ -47,9 +47,9 @@ bunx ts-prune
 
 以下は削除しない:
 
-- Better Auth設定（`packages/zepha/auth`）
-- DBクライアント（`packages/zepha/db`）
-- oRPCコンテキスト（`packages/zepha/api`）
+- Better Auth設定（`packages/pagedeck/auth`）
+- DBクライアント（`packages/pagedeck/db`）
+- oRPCコンテキスト（`packages/pagedeck/api`）
 - 環境変数定義（`env.d.ts`）
 - Drizzleスキーマ
 - Turborepo設定

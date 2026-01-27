@@ -71,7 +71,7 @@ const mockContext = {
 }
 
 // Drizzleクエリのモック
-vi.mock('@itsukis-products/zepha-db', () => ({
+vi.mock('@itsukis-products/pagedeck-db', () => ({
   db: {
     select: vi.fn(),
     insert: vi.fn(),

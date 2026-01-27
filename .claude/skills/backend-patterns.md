@@ -7,10 +7,10 @@ Hono + oRPC + Drizzle ORMのバックエンドパターン。
 ### ルーター定義
 
 ```typescript
-// packages/zepha/api/src/routers/todo.ts
+// packages/pagedeck/api/src/routers/todo.ts
 import { o, protectedProcedure, publicProcedure } from '../index'
-import { db } from '@itsukis-products/zepha-db'
-import { todos } from '@itsukis-products/zepha-db/schema/todo'
+import { db } from '@itsukis-products/pagedeck-db'
+import { todos } from '@itsukis-products/pagedeck-db/schema/todo'
 import * as v from 'valibot'
 import { eq } from 'drizzle-orm'
 
@@ -67,8 +67,8 @@ export const todoRouter = o.router({
 ### Context
 
 ```typescript
-// packages/zepha/api/src/context.ts
-import { auth } from '@itsukis-products/zepha-auth'
+// packages/pagedeck/api/src/context.ts
+import { auth } from '@itsukis-products/pagedeck-auth'
 import type { Context as HonoContext } from 'hono'
 
 export type Context = {
@@ -88,7 +88,7 @@ export async function createContext({ context }: { context: HonoContext }): Prom
 ### スキーマ定義
 
 ```typescript
-// packages/zepha/db/src/schema/todo.ts
+// packages/pagedeck/db/src/schema/todo.ts
 import { pgTable, text, timestamp, uuid, boolean } from 'drizzle-orm/pg-core'
 
 export const todos = pgTable('todos', {

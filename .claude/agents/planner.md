@@ -60,9 +60,9 @@
 ## プロジェクト固有の考慮事項
 
 ### モノレポ構造
-- `apps/zepha/web` - フロントエンド
-- `apps/zepha/server` - APIサーバー
-- `packages/zepha/*` - 共有パッケージ
+- `apps/pagedeck/web` - フロントエンド
+- `apps/pagedeck/server` - APIサーバー
+- `packages/pagedeck/*` - 共有パッケージ
 
 ### パッケージ依存関係
 1. `db` → 他パッケージから参照

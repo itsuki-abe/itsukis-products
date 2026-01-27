@@ -1,4 +1,4 @@
-# Project Guidelines - PageDeck (Zepha)
+# Project Guidelines - PageDeck
 
 プロジェクト固有のガイドライン。
 
@@ -31,14 +31,14 @@
 
 ```
 apps/
-  zepha/
+  pagedeck/
     web/          # フロントエンド（TanStack Start）
     server/       # APIサーバー（Hono + oRPC）
 
 packages/
   common/
     config/       # 共通設定
-  zepha/
+  pagedeck/
     api/          # oRPCのルーター・プロシージャ定義
     auth/         # Better Auth設定
     db/           # Drizzle ORMスキーマ・クライアント
@@ -68,13 +68,13 @@ bun run check         # Biomeでフォーマット・Lint
 ## パッケージ依存関係
 
 ```
-@itsukis-products/zepha-db
+@itsukis-products/pagedeck-db
        ↓
-@itsukis-products/zepha-auth
+@itsukis-products/pagedeck-auth
        ↓
-@itsukis-products/zepha-api
+@itsukis-products/pagedeck-api
        ↓
-apps/zepha/server, apps/zepha/web
+apps/pagedeck/server, apps/pagedeck/web
 ```
 
 ## 重要な規約
