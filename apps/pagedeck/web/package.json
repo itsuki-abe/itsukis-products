@@ -36,8 +36,8 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.3",
     "tw-animate-css": "^1.2.5",
-    "vite-tsconfig-paths": "^5.1.4",
-    "zod": "catalog:"
+    "valibot": "catalog:",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "^1.17.1",

@@ -1,7 +1,7 @@
 import { db } from "@itsukis-products/pagedeck-db";
 import { todo } from "@itsukis-products/pagedeck-db/schema/todo";
 import { eq } from "drizzle-orm";
-import z from "zod";
+import * as v from "valibot";
 
 import { publicProcedure } from "../index";
 
@@ -11,7 +11,7 @@ export const todoRouter = {
   }),
 
   create: publicProcedure
-    .input(z.object({ text: z.string().min(1) }))
+    .input(v.object({ text: v.pipe(v.string(), v.minLength(1)) }))
     .handler(async ({ input }) => {
       return await db.insert(todo).values({
         text: input.text,
@@ -19,12 +19,12 @@ export const todoRouter = {
     }),
 
   toggle: publicProcedure
-    .input(z.object({ id: z.number(), completed: z.boolean() }))
+    .input(v.object({ id: v.number(), completed: v.boolean() }))
     .handler(async ({ input }) => {
       return await db.update(todo).set({ completed: input.completed }).where(eq(todo.id, input.id));
     }),
 
-  delete: publicProcedure.input(z.object({ id: z.number() })).handler(async ({ input }) => {
+  delete: publicProcedure.input(v.object({ id: v.number() })).handler(async ({ input }) => {
     return await db.delete(todo).where(eq(todo.id, input.id));
   }),
 };

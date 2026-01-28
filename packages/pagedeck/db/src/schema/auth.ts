@@ -1,7 +1,7 @@
 import { relations } from "drizzle-orm";
-import { pgTable, text, timestamp, boolean, index } from "drizzle-orm/pg-core";
+import { cockroachTable, text, timestamp, boolean, index } from "drizzle-orm/cockroach-core";
 
-export const user = pgTable("user", {
+export const user = cockroachTable("user", {
   id: text("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull().unique(),
@@ -14,7 +14,7 @@ export const user = pgTable("user", {
     .notNull(),
 });
 
-export const session = pgTable(
+export const session = cockroachTable(
   "session",
   {
     id: text("id").primaryKey(),
@@ -33,7 +33,7 @@ export const session = pgTable(
   (table) => [index("session_userId_idx").on(table.userId)],
 );
 
-export const account = pgTable(
+export const account = cockroachTable(
   "account",
   {
     id: text("id").primaryKey(),
@@ -57,7 +57,7 @@ export const account = pgTable(
   (table) => [index("account_userId_idx").on(table.userId)],
 );
 
-export const verification = pgTable(
+export const verification = cockroachTable(
   "verification",
   {
     id: text("id").primaryKey(),

@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "dotenv": "catalog:",
-    "zod": "catalog:"
+    "valibot": "catalog:"
   },
   "devDependencies": {
     "@itsukis-products/config": "workspace:*",
