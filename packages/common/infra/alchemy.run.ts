@@ -12,6 +12,8 @@ existsSync(envPath) && config({ path: envPath });
 existsSync(webEnvPath) && config({ path: webEnvPath });
 existsSync(serverEnvPath) && config({ path: serverEnvPath });
 
+console.log(alchemy.env.PAGEDECK_VITE_SERVER_URL!);
+
 const app = await alchemy("itsukis-products", {
   stateStore: (scope) =>
     new CloudflareStateStore(scope, {
