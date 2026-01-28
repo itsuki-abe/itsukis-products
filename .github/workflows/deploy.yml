@@ -72,3 +72,4 @@ jobs:
           # Common
           NODE_ENV: production
           STAGE: prod
+        working-directory: ./packages/common/infra
