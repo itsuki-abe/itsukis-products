@@ -1,0 +1,48 @@
+ Warning  There's a duplicate table name "account" in "public" schema
+ Warning  There's a duplicate table name "session" in "public" schema
+ Warning  There's a duplicate table name "user" in "public" schema
+ Warning  There's a duplicate table name "verification" in "public" schema
+ Warning  There's a duplicate table name "todo" in "public" schema
+ Warning  There's a duplicate column name 'id' in "public"."account" table
+ Warning  There's a duplicate column name 'account_id' in "public"."account" table
+ Warning  There's a duplicate column name 'provider_id' in "public"."account" table
+ Warning  There's a duplicate column name 'user_id' in "public"."account" table
+ Warning  There's a duplicate column name 'access_token' in "public"."account" table
+ Warning  There's a duplicate column name 'refresh_token' in "public"."account" table
+ Warning  There's a duplicate column name 'id_token' in "public"."account" table
+ Warning  There's a duplicate column name 'access_token_expires_at' in "public"."account" table
+ Warning  There's a duplicate column name 'refresh_token_expires_at' in "public"."account" table
+ Warning  There's a duplicate column name 'scope' in "public"."account" table
+ Warning  There's a duplicate column name 'password' in "public"."account" table
+ Warning  There's a duplicate column name 'created_at' in "public"."account" table
+ Warning  There's a duplicate column name 'updated_at' in "public"."account" table
+ Warning  There's a duplicate column name 'id' in "public"."session" table
+ Warning  There's a duplicate column name 'expires_at' in "public"."session" table
+ Warning  There's a duplicate column name 'token' in "public"."session" table
+ Warning  There's a duplicate column name 'created_at' in "public"."session" table
+ Warning  There's a duplicate column name 'updated_at' in "public"."session" table
+ Warning  There's a duplicate column name 'ip_address' in "public"."session" table
+ Warning  There's a duplicate column name 'user_agent' in "public"."session" table
+ Warning  There's a duplicate column name 'user_id' in "public"."session" table
+ Warning  There's a duplicate column name 'id' in "public"."user" table
+ Warning  There's a duplicate column name 'name' in "public"."user" table
+ Warning  There's a duplicate column name 'email' in "public"."user" table
+ Warning  There's a duplicate column name 'email_verified' in "public"."user" table
+ Warning  There's a duplicate column name 'image' in "public"."user" table
+ Warning  There's a duplicate column name 'created_at' in "public"."user" table
+ Warning  There's a duplicate column name 'updated_at' in "public"."user" table
+ Warning  There's a duplicate column name 'id' in "public"."verification" table
+ Warning  There's a duplicate column name 'identifier' in "public"."verification" table
+ Warning  There's a duplicate column name 'value' in "public"."verification" table
+ Warning  There's a duplicate column name 'expires_at' in "public"."verification" table
+ Warning  There's a duplicate column name 'created_at' in "public"."verification" table
+ Warning  There's a duplicate column name 'updated_at' in "public"."verification" table
+ Warning  There's a duplicate column name 'id' in "public"."todo" table
+ Warning  There's a duplicate column name 'text' in "public"."todo" table
+ Warning  There's a duplicate column name 'completed' in "public"."todo" table
+ Warning  There's a duplicate index name 'account_userId_idx' in "public" schema in "public"."account"
+ Warning  There's a duplicate index name 'session_userId_idx' in "public" schema in "public"."session"
+ Warning  There's a duplicate index name 'verification_identifier_idx' in "public" schema in "public"."verification"
+ Warning  There's a duplicate constraint name 'account_user_id_user_id_fkey' in "public"."account" table
+ Warning  There's a duplicate constraint name 'session_user_id_user_id_fkey' in "public"."session" table
+error: script "db:generate" exited with code 1
