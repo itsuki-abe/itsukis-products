@@ -3,9 +3,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "apps/pagedeck/*",
-      "packages/*",
-      "packages/pagedeck/*"
+      "apps/**/*",
+      "packages/**/*"
     ],
     "catalog": {
       "dotenv": "^17.2.2",

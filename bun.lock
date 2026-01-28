@@ -98,11 +98,11 @@
         "wrangler": "catalog:",
       },
     },
-    "packages/config": {
+    "packages/common/config": {
       "name": "@itsukis-products/config",
       "version": "0.0.0",
     },
-    "packages/infra": {
+    "packages/common/infra": {
       "name": "@itsukis-products/infra",
       "dependencies": {
         "dotenv": "catalog:",
@@ -554,9 +554,9 @@
 
     "@isaacs/cliui": ["@isaacs/cliui@8.0.2", "", { "dependencies": { "string-width": "^5.1.2", "string-width-cjs": "npm:string-width@^4.2.0", "strip-ansi": "^7.0.1", "strip-ansi-cjs": "npm:strip-ansi@^6.0.1", "wrap-ansi": "^8.1.0", "wrap-ansi-cjs": "npm:wrap-ansi@^7.0.0" } }, "sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA=="],
 
-    "@itsukis-products/config": ["@itsukis-products/config@workspace:packages/config"],
+    "@itsukis-products/config": ["@itsukis-products/config@workspace:packages/common/config"],
 
-    "@itsukis-products/infra": ["@itsukis-products/infra@workspace:packages/infra"],
+    "@itsukis-products/infra": ["@itsukis-products/infra@workspace:packages/common/infra"],
 
     "@itsukis-products/pagedeck-api": ["@itsukis-products/pagedeck-api@workspace:packages/pagedeck/api"],
 
