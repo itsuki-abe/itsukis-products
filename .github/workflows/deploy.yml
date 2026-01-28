@@ -1,4 +1,4 @@
-name: Deploy Server to Cloudflare Workers
+name: Deploy to Cloudflare Workers
 
 on:
   push:
@@ -8,7 +8,6 @@ on:
       - "apps/**"
       - "packages/**"
       - ".github/workflows/deploy.yml"
-      - "alchemy.run.ts"
 
 concurrency:
   group: "publish"
@@ -52,18 +51,23 @@ jobs:
         run: |
           bun run deploy
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
-          PAGEDECK_BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
-          PAGEDECK_DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          PAGEDECK_POLAR_ACCESS_TOKEN: ${{ secrets.POLAR_ACCESS_TOKEN }}
+          # Alchemy
           ALCHEMY_PASSWORD: ${{ secrets.ALCHEMY_PASSWORD }}
           ALCHEMY_STATE_STORE: cloudflare
           ALCHEMY_STATE_TOKEN: ${{ secrets.ALCHEMY_STATE_TOKEN }}
-          PAGEDECK_BETTER_AUTH_URL: ${{ vars.BETTER_AUTH_URL }}
-          PAGEDECK_CORS_ORIGIN: ${{ vars.CORS_ORIGIN }}
+          # Cloudflare
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
+          # PageDeck Server
+          PAGEDECK_DATABASE_URL: ${{ secrets.PAGEDECK_DATABASE_URL }}
+          PAGEDECK_BETTER_AUTH_SECRET: ${{ secrets.PAGEDECK_BETTER_AUTH_SECRET }}
+          PAGEDECK_BETTER_AUTH_URL: ${{ vars.PAGEDECK_BETTER_AUTH_URL }}
+          PAGEDECK_CORS_ORIGIN: ${{ vars.PAGEDECK_CORS_ORIGIN }}
+          PAGEDECK_POLAR_ACCESS_TOKEN: ${{ secrets.PAGEDECK_POLAR_ACCESS_TOKEN }}
+          PAGEDECK_POLAR_SUCCESS_URL: ${{ vars.PAGEDECK_POLAR_SUCCESS_URL }}
+          # PageDeck Web
+          PAGEDECK_VITE_SERVER_URL: ${{ vars.PAGEDECK_VITE_SERVER_URL }}
+          # Common
           NODE_ENV: production
-          PAGEDECK_POLAR_SUCCESS_URL: ${{ vars.POLAR_SUCCESS_URL }}
-          PAGEDECK_VITE_SERVER_URL: ${{ vars.VITE_SERVER_URL }}
           STAGE: prod
