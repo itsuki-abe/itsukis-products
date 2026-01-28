@@ -20,6 +20,7 @@ const app = await alchemy("itsukis-products", {
 });
 
 export const pagedeckWeb = await TanStackStart("pagedeck-web", {
+  name: "pagedeck-web",
   cwd: "../../../apps/pagedeck/web",
   bindings: {
     VITE_SERVER_URL: process.env.PAGEDECK_VITE_SERVER_URL!,
@@ -33,6 +34,7 @@ export const pagedeckWeb = await TanStackStart("pagedeck-web", {
 });
 
 export const pagedeckServer = await Worker("pagedeck-server", {
+  name: "pagedeck-server",
   cwd: "../../../apps/pagedeck/server",
   entrypoint: "src/index.ts",
   compatibility: "node",
