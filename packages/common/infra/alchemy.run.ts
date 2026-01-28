@@ -2,10 +2,15 @@ import alchemy from "alchemy";
 import { TanStackStart, Worker } from "alchemy/cloudflare";
 import { CloudflareStateStore } from "alchemy/state";
 import { config } from "dotenv";
+import { existsSync } from "node:fs";
 
-config({ path: "./.env" });
-config({ path: "../../../apps/pagedeck/web/.env" });
-config({ path: "../../../apps/pagedeck/server/.env" });
+const envPath = "./.env";
+const webEnvPath = "../../../apps/pagedeck/web/.env";
+const serverEnvPath = "../../../apps/pagedeck/server/.env";
+
+existsSync(envPath) && config({ path: envPath });
+existsSync(webEnvPath) && config({ path: webEnvPath });
+existsSync(serverEnvPath) && config({ path: serverEnvPath });
 
 const app = await alchemy("itsukis-products", {
   stateStore: (scope) =>

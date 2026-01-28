@@ -1,9 +1,17 @@
-import dotenv from "dotenv";
 import { defineConfig } from "drizzle-kit";
+import { existsSync } from "node:fs";
+import { config } from "dotenv";
 
-dotenv.config({
-  path: "../../../apps/pagedeck/server/.env",
-});
+async function loadEnvFile() {
+  const envPath = "../../../apps/pagedeck/server/.env";
+  if (existsSync(envPath)) {
+    config({
+      path: envPath,
+    });
+  }
+}
+
+loadEnvFile();
 
 export default defineConfig({
   schema: "./src/schema/index.ts",
