@@ -1,9 +1,9 @@
-import { type server } from "@itsukis-products/infra/alchemy.run";
+import { type pagedeckServer } from "@itsukis-products/infra/alchemy.run";
 
 // This file infers types for the cloudflare:workers environment from your Alchemy Worker.
 // @see https://alchemy.run/concepts/bindings/#type-safe-bindings
 
-export type CloudflareEnv = typeof server.Env;
+export type CloudflareEnv = typeof pagedeckServer.Env;
 
 declare global {
   type Env = CloudflareEnv;

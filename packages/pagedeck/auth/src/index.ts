@@ -1,6 +1,6 @@
 import { db } from "@itsukis-products/pagedeck-db";
 import * as schema from "@itsukis-products/pagedeck-db/schema/auth";
-import { env } from "@itsukis-products/env/server";
+import { env } from "@itsukis-products/pagedeck-env/server";
 import { polar, checkout, portal } from "@polar-sh/better-auth";
 import { betterAuth } from "better-auth";
 import { drizzleAdapter } from "better-auth/adapters/drizzle";

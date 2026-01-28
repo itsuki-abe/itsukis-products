@@ -16,7 +16,7 @@
     "db:migrate": "drizzle-kit migrate"
   },
   "dependencies": {
-    "@itsukis-products/env": "workspace:*",
+    "@itsukis-products/pagedeck-env": "workspace:*",
     "dotenv": "catalog:",
     "drizzle-orm": "catalog:",
     "pg": "^8.17.1",

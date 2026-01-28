@@ -5,7 +5,7 @@
     "": {
       "name": "itsukis-products",
       "dependencies": {
-        "@itsukis-products/env": "workspace:*",
+        "@itsukis-products/pagedeck-env": "workspace:*",
         "dotenv": "catalog:",
         "zod": "catalog:",
       },
@@ -24,10 +24,10 @@
     "apps/pagedeck/server": {
       "name": "@itsukis-products/pagedeck-server",
       "dependencies": {
-        "@itsukis-products/env": "workspace:*",
         "@itsukis-products/pagedeck-api": "workspace:*",
         "@itsukis-products/pagedeck-auth": "workspace:*",
         "@itsukis-products/pagedeck-db": "workspace:*",
+        "@itsukis-products/pagedeck-env": "workspace:*",
         "@orpc/openapi": "catalog:",
         "@orpc/server": "catalog:",
         "@orpc/zod": "catalog:",
@@ -50,9 +50,9 @@
       "name": "@itsukis-products/pagedeck-web",
       "dependencies": {
         "@base-ui/react": "^1.0.0",
-        "@itsukis-products/env": "workspace:*",
         "@itsukis-products/pagedeck-api": "workspace:*",
         "@itsukis-products/pagedeck-auth": "workspace:*",
+        "@itsukis-products/pagedeck-env": "workspace:*",
         "@orpc/client": "catalog:",
         "@orpc/server": "catalog:",
         "@orpc/tanstack-query": "^1.12.2",
@@ -102,21 +102,6 @@
       "name": "@itsukis-products/config",
       "version": "0.0.0",
     },
-    "packages/env": {
-      "name": "@itsukis-products/env",
-      "version": "0.0.0",
-      "dependencies": {
-        "@t3-oss/env-core": "^0.13.1",
-        "dotenv": "catalog:",
-        "zod": "catalog:",
-      },
-      "devDependencies": {
-        "@itsukis-products/config": "workspace:*",
-        "@itsukis-products/infra": "workspace:*",
-        "@types/node": "catalog:",
-        "typescript": "catalog:",
-      },
-    },
     "packages/infra": {
       "name": "@itsukis-products/infra",
       "dependencies": {
@@ -132,9 +117,9 @@
     "packages/pagedeck/api": {
       "name": "@itsukis-products/pagedeck-api",
       "dependencies": {
-        "@itsukis-products/env": "workspace:*",
         "@itsukis-products/pagedeck-auth": "workspace:*",
         "@itsukis-products/pagedeck-db": "workspace:*",
+        "@itsukis-products/pagedeck-env": "workspace:*",
         "@orpc/client": "catalog:",
         "@orpc/openapi": "catalog:",
         "@orpc/server": "catalog:",
@@ -153,8 +138,8 @@
     "packages/pagedeck/auth": {
       "name": "@itsukis-products/pagedeck-auth",
       "dependencies": {
-        "@itsukis-products/env": "workspace:*",
         "@itsukis-products/pagedeck-db": "workspace:*",
+        "@itsukis-products/pagedeck-env": "workspace:*",
         "@polar-sh/better-auth": "catalog:",
         "@polar-sh/sdk": "^0.42.2",
         "better-auth": "catalog:",
@@ -169,7 +154,7 @@
     "packages/pagedeck/db": {
       "name": "@itsukis-products/pagedeck-db",
       "dependencies": {
-        "@itsukis-products/env": "workspace:*",
+        "@itsukis-products/pagedeck-env": "workspace:*",
         "dotenv": "catalog:",
         "drizzle-orm": "catalog:",
         "pg": "^8.17.1",
@@ -179,6 +164,21 @@
         "@itsukis-products/config": "workspace:*",
         "@types/pg": "catalog:",
         "drizzle-kit": "^0.31.8",
+        "typescript": "catalog:",
+      },
+    },
+    "packages/pagedeck/env": {
+      "name": "@itsukis-products/pagedeck-env",
+      "version": "0.0.0",
+      "dependencies": {
+        "@t3-oss/env-core": "^0.13.1",
+        "dotenv": "catalog:",
+        "zod": "catalog:",
+      },
+      "devDependencies": {
+        "@itsukis-products/config": "workspace:*",
+        "@itsukis-products/infra": "workspace:*",
+        "@types/node": "catalog:",
         "typescript": "catalog:",
       },
     },
@@ -522,8 +522,6 @@
 
     "@itsukis-products/config": ["@itsukis-products/config@workspace:packages/config"],
 
-    "@itsukis-products/env": ["@itsukis-products/env@workspace:packages/env"],
-
     "@itsukis-products/infra": ["@itsukis-products/infra@workspace:packages/infra"],
 
     "@itsukis-products/pagedeck-api": ["@itsukis-products/pagedeck-api@workspace:packages/pagedeck/api"],
@@ -531,6 +529,8 @@
     "@itsukis-products/pagedeck-auth": ["@itsukis-products/pagedeck-auth@workspace:packages/pagedeck/auth"],
 
     "@itsukis-products/pagedeck-db": ["@itsukis-products/pagedeck-db@workspace:packages/pagedeck/db"],
+
+    "@itsukis-products/pagedeck-env": ["@itsukis-products/pagedeck-env@workspace:packages/pagedeck/env"],
 
     "@itsukis-products/pagedeck-server": ["@itsukis-products/pagedeck-server@workspace:apps/pagedeck/server"],
 

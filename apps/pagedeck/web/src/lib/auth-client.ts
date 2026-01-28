@@ -1,4 +1,4 @@
-import { env } from "@itsukis-products/env/web";
+import { env } from "@itsukis-products/pagedeck-env/web";
 import { polarClient } from "@polar-sh/better-auth";
 import { createAuthClient } from "better-auth/react";
 

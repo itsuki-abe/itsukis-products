@@ -1,7 +1,7 @@
 import type { AppRouter } from "@itsukis-products/pagedeck-api/routers/index";
 import type { RouterClient } from "@orpc/server";
 
-import { env } from "@itsukis-products/env/web";
+import { env } from "@itsukis-products/pagedeck-env/web";
 import { createORPCClient } from "@orpc/client";
 import { RPCLink } from "@orpc/client/fetch";
 import { createTanstackQueryUtils } from "@orpc/tanstack-query";

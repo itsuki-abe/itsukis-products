@@ -44,7 +44,7 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@itsukis-products/env": "workspace:*",
+    "@itsukis-products/pagedeck-env": "workspace:*",
     "dotenv": "catalog:",
     "zod": "catalog:"
   },

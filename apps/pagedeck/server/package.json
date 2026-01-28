@@ -8,10 +8,10 @@
     "compile": "bun build --compile --minify --sourcemap --bytecode ./src/index.ts --outfile server"
   },
   "dependencies": {
-    "@itsukis-products/env": "workspace:*",
     "@itsukis-products/pagedeck-api": "workspace:*",
     "@itsukis-products/pagedeck-auth": "workspace:*",
     "@itsukis-products/pagedeck-db": "workspace:*",
+    "@itsukis-products/pagedeck-env": "workspace:*",
     "@orpc/openapi": "catalog:",
     "@orpc/server": "catalog:",
     "@orpc/zod": "catalog:",

@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
-    "@itsukis-products/env": "workspace:*",
     "@itsukis-products/pagedeck-api": "workspace:*",
     "@itsukis-products/pagedeck-auth": "workspace:*",
+    "@itsukis-products/pagedeck-env": "workspace:*",
     "@orpc/client": "catalog:",
     "@orpc/server": "catalog:",
     "@orpc/tanstack-query": "^1.12.2",

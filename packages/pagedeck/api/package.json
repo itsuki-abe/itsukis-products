@@ -11,9 +11,9 @@
   },
   "scripts": {},
   "dependencies": {
-    "@itsukis-products/env": "workspace:*",
     "@itsukis-products/pagedeck-auth": "workspace:*",
     "@itsukis-products/pagedeck-db": "workspace:*",
+    "@itsukis-products/pagedeck-env": "workspace:*",
     "@orpc/client": "catalog:",
     "@orpc/openapi": "catalog:",
     "@orpc/server": "catalog:",

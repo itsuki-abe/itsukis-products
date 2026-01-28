@@ -1,4 +1,4 @@
-import { env } from "@itsukis-products/env/server";
+import { env } from "@itsukis-products/pagedeck-env/server";
 import { Polar } from "@polar-sh/sdk";
 
 export const polarClient = new Polar({
