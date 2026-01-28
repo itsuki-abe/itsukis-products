@@ -15,7 +15,7 @@ existsSync(serverEnvPath) && config({ path: serverEnvPath });
 const app = await alchemy("itsukis-products", {
   stateStore: (scope) =>
     new CloudflareStateStore(scope, {
-      stateToken: alchemy.secret(process.env.ALCHEMY_STATE_TOKEN),
+      stateToken: alchemy.secret.env.ALCHEMY_STATE_TOKEN!,
     }),
 });
 
