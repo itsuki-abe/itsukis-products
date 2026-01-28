@@ -1,12 +1,18 @@
 import alchemy from "alchemy";
 import { TanStackStart, Worker } from "alchemy/cloudflare";
+import { CloudflareStateStore } from "alchemy/state";
 import { config } from "dotenv";
 
 config({ path: "./.env" });
 config({ path: "../../../apps/pagedeck/web/.env" });
 config({ path: "../../../apps/pagedeck/server/.env" });
 
-const app = await alchemy("itsukis-products");
+const app = await alchemy("itsukis-products", {
+  stateStore: (scope) =>
+    new CloudflareStateStore(scope, {
+      stateToken: alchemy.secret(process.env.ALCHEMY_STATE_TOKEN),
+    }),
+});
 
 export const pagedeckWeb = await TanStackStart("pagedeck-web", {
   cwd: "../../../apps/pagedeck/web",
