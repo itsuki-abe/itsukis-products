@@ -15,20 +15,24 @@
 **ウィジェットベースのマイクロサイト専用ノーコードサービス**
 
 #### コンセプト
+
 - 「Notion site+α くらいの表現力」×「Link in Bio 並みの手軽さ」
-- *"プロフィールや採用・イベントのマイクロサイトを、誰でも 5 分で。"*
+- _"プロフィールや採用・イベントのマイクロサイトを、誰でも 5 分で。"_
 
 #### ターゲット
+
 - SaaS / スタートアップの採用・マーケ担当
 - クリエイター（Link in Bio として利用）
 
 #### ユースケース
+
 - 採用募集ページ（求人LP・ポジション紹介）
 - イベントページ（勉強会、ウェビナー、カンファレンス）
 - 商品紹介ページ / LP
 - シンプルな情報サイト / コーポレートサイト
 
 #### 主要機能
+
 - セクション / ブロックベースのページ編集（ウィジェット配置）
 - テーマ / デザイン設定（カラー、フォント、角丸など）
 - テンプレート（採用、イベント、LP等）
@@ -37,20 +41,22 @@
 - 組織向け機能（ワークスペース、権限、ブランドガイドライン、承認フロー）
 
 #### 非ゴール
+
 - 高度なアニメーション / ピクセル単位のレイアウト
 - 大規模・複雑なサイト（数百ページ規模）
 - 本格ECサイト / Webアプリケーション
 
 #### 技術スタック
 
-| カテゴリ | 技術 |
-|---------|------|
+| カテゴリ       | 技術                                                |
+| -------------- | --------------------------------------------------- |
 | フロントエンド | React 19, TanStack Start, TailwindCSS v4, Shadcn/UI |
-| バックエンド | Hono, oRPC, Drizzle ORM v1 beta, CockroachDB |
-| 認証 | Better Auth (Organization, MagicLink, Polar) |
-| インフラ | Cloudflare Workers, HyperDrive, R2 |
+| バックエンド   | Hono, oRPC, Drizzle ORM v1 beta, CockroachDB        |
+| 認証           | Better Auth (Organization, MagicLink, Polar)        |
+| インフラ       | Cloudflare Workers, HyperDrive, R2                  |
 
 #### ディレクトリ
+
 - `apps/pagedeck/web` - フロントエンド
 - `apps/pagedeck/server` - APIサーバー
 - `packages/pagedeck/*` - 共有パッケージ
@@ -59,13 +65,13 @@
 
 ## 共通技術スタック
 
-| カテゴリ | 技術 |
-|---------|------|
-| パッケージ管理 | Bun Workspace |
-| ビルド | Turborepo |
-| Linter/Formatter | Biome |
-| IaC | Alchemy.run |
-| デプロイ先 | Cloudflare Workers |
+| カテゴリ         | 技術               |
+| ---------------- | ------------------ |
+| パッケージ管理   | Bun Workspace      |
+| ビルド           | Turborepo          |
+| Linter/Formatter | Biome              |
+| IaC              | Alchemy.run        |
+| デプロイ先       | Cloudflare Workers |
 
 ---
 
@@ -113,11 +119,12 @@ apps/
 packages/
   common/               # 全プロダクト共通
     config/             # 共通設定
+    infra/              # Alchemy.run IaC
   pagedeck/             # PageDeck専用パッケージ
     api/                # oRPCルーター・プロシージャ
     auth/               # Better Auth設定
     db/                 # Drizzle ORMスキーマ
-    ui/                 # Shadcn/UIコンポーネント
+    env/                # 環境変数定義
   [future-product]/     # 将来のプロダクト専用パッケージ
 ```
 
@@ -245,28 +252,30 @@ perf: パフォーマンス
 
 ## 利用可能なコマンド
 
-| コマンド | 説明 |
-|---------|------|
-| `/plan` | 実装計画を作成 |
-| `/tdd` | テスト駆動開発を実行 |
-| `/build-fix` | ビルドエラーを修正 |
-| `/code-review` | コードレビューを実行 |
-| `/e2e` | E2Eテストを実行 |
-| `/refactor-clean` | デッドコードを削除 |
-| `/test-coverage` | カバレッジを分析 |
-| `/update-docs` | ドキュメントを更新 |
-| `/commit` | コミット・プッシュ・PR作成/更新 |
+| コマンド          | 説明                            |
+| ----------------- | ------------------------------- |
+| `/plan`           | 実装計画を作成                  |
+| `/tdd`            | テスト駆動開発を実行            |
+| `/build-fix`      | ビルドエラーを修正              |
+| `/code-review`    | コードレビューを実行            |
+| `/e2e`            | E2Eテストを実行                 |
+| `/refactor-clean` | デッドコードを削除              |
+| `/test-coverage`  | カバレッジを分析                |
+| `/update-docs`    | ドキュメントを更新              |
+| `/commit`         | コミット・プッシュ・PR作成/更新 |
 
 ---
 
 ## 重要な注意事項
 
 ### 共通
+
 - **ID生成**: `uuidv7()`を使用（時系列ソート可能）
 - **Cloudflare Workers環境**: `cloudflare:workers`から`env`をインポートして環境変数にアクセス
 - **スタイリング**: `cn()`ユーティリティでTailwindクラスを結合
 
 ### PageDeck固有
+
 - **oRPCのContext**: `createContext`でセッション情報を取得。`protectedProcedure`で認証必須化
 - **Better Auth**: `@itsukis-products/pagedeck-auth`からエクスポート。Organization・MagicLink・Polar連携あり
 - **TanStack Start**: ルーティングは`apps/pagedeck/web/src/routes/`に配置。ファイルベースルーティング
@@ -280,16 +289,19 @@ perf: パフォーマンス
 Cloudflareリソースの管理には**Alchemy.run**を使用する。
 
 **参考情報**:
+
 - 公式ドキュメント: https://alchemy.run/
 - GitHub: https://github.com/alchemy-run/alchemy
 
 ### 管理対象リソース
+
 - Cloudflare Workers
 - Cloudflare R2（ストレージ）
 - Cloudflare HyperDrive（DB接続）
 - カスタムドメイン
 
 ### コマンド
+
 ```bash
 bun run dev         # ローカル開発（Alchemy経由）
 bun run deploy      # 本番デプロイ
@@ -297,5 +309,6 @@ bun run destroy     # リソース削除
 ```
 
 ### 重要
+
 - **Cloudflareの操作はAlchemy.run経由で行う**（直接APIを叩かない）
 - インフラ変更は設定ファイルを編集してデプロイ
