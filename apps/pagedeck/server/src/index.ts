@@ -1,6 +1,7 @@
 import { createContext } from "@itsukis-products/pagedeck-api/context";
 import { appRouter } from "@itsukis-products/pagedeck-api/routers/index";
-import { auth } from "@itsukis-products/pagedeck-auth";
+import { createAuth } from "@itsukis-products/pagedeck-auth";
+import { createDb } from "@itsukis-products/pagedeck-db";
 import { env } from "@itsukis-products/pagedeck-env/server";
 import { OpenAPIHandler } from "@orpc/openapi/fetch";
 import { OpenAPIReferencePlugin } from "@orpc/openapi/plugins";
@@ -24,9 +25,20 @@ app.use(
   }),
 );
 
-app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
+app.on(["POST", "GET"], "/api/auth/*", (c) => {
+  const db = createDb(env.DB);
+  const auth = createAuth({
+    db,
+    corsOrigin: env.CORS_ORIGIN,
+    betterAuthSecret: env.BETTER_AUTH_SECRET,
+    betterAuthUrl: env.BETTER_AUTH_URL,
+    polarAccessToken: env.POLAR_ACCESS_TOKEN,
+    polarSuccessUrl: env.POLAR_SUCCESS_URL,
+  });
+  return auth.handler(c.req.raw);
+});
 
-export const apiHandler = new OpenAPIHandler(appRouter, {
+const apiHandler = new OpenAPIHandler(appRouter, {
   plugins: [
     new OpenAPIReferencePlugin({
       schemaConverters: [new experimental_ValibotToJsonSchemaConverter()],
@@ -39,7 +51,7 @@ export const apiHandler = new OpenAPIHandler(appRouter, {
   ],
 });
 
-export const rpcHandler = new RPCHandler(appRouter, {
+const rpcHandler = new RPCHandler(appRouter, {
   interceptors: [
     onError((error) => {
       console.error(error);
