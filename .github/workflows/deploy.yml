@@ -44,7 +44,7 @@ jobs:
       - name: Database Migration
         run: bun run db:migrate
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PAGEDECK_DATABASE_URL: ${{ secrets.PAGEDECK_DATABASE_URL }}
           NODE_ENV: production
         working-directory: ./packages/pagedeck/db
 
