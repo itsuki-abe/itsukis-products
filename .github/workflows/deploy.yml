@@ -55,22 +55,15 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_EMAIL: ${{ secrets.CLOUDFLARE_EMAIL }}
-          BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          POLAR_ACCESS_TOKEN: ${{ secrets.POLAR_ACCESS_TOKEN }}
+          PAGEDECK_BETTER_AUTH_SECRET: ${{ secrets.BETTER_AUTH_SECRET }}
+          PAGEDECK_DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          PAGEDECK_POLAR_ACCESS_TOKEN: ${{ secrets.POLAR_ACCESS_TOKEN }}
           ALCHEMY_PASSWORD: ${{ secrets.ALCHEMY_PASSWORD }}
           ALCHEMY_STATE_STORE: cloudflare
           ALCHEMY_STATE_TOKEN: ${{ secrets.ALCHEMY_STATE_TOKEN }}
-          BETTER_AUTH_URL: ${{ vars.BETTER_AUTH_URL }}
-          CORS_ORIGIN: ${{ vars.CORS_ORIGIN }}
+          PAGEDECK_BETTER_AUTH_URL: ${{ vars.BETTER_AUTH_URL }}
+          PAGEDECK_CORS_ORIGIN: ${{ vars.CORS_ORIGIN }}
           NODE_ENV: production
-          POLAR_SUCCESS_URL: ${{ vars.POLAR_SUCCESS_URL }}
-          VITE_SERVER_URL: ${{ vars.VITE_SERVER_URL }}
+          PAGEDECK_POLAR_SUCCESS_URL: ${{ vars.POLAR_SUCCESS_URL }}
+          PAGEDECK_VITE_SERVER_URL: ${{ vars.VITE_SERVER_URL }}
           STAGE: prod
-          # pagedeck-lp
-          NOCODB_API_TOKEN: ${{ secrets.NOCODB_API_TOKEN }}
-          PAGEDECK_WAITLIST_DISCORD_WEBHOOK_URL: ${{ secrets.PAGEDECK_WAITLIST_DISCORD_WEBHOOK_URL }}
-          NOCODB_BASE_URL: ${{ vars.NOCODB_BASE_URL }}
-          NOCODB_PAGEDECK_BASE_ID: ${{ vars.NOCODB_PAGEDECK_BASE_ID }}
-          NOCODB_PAGEDECK_WAITLIST_TABLE_ID: ${{ vars.NOCODB_PAGEDECK_WAITLIST_TABLE_ID }}
-          VITE_PAGEDECK_LP_ADOBE_FONT_ID: ${{ vars.VITE_PAGEDECK_LP_ADOBE_FONT_ID }}
