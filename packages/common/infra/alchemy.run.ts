@@ -3,13 +3,13 @@ import { TanStackStart, Worker } from "alchemy/cloudflare";
 import { config } from "dotenv";
 
 config({ path: "./.env" });
-config({ path: "../../apps/pagedeck/web/.env" });
-config({ path: "../../apps/pagedeck/server/.env" });
+config({ path: "../../../apps/pagedeck/web/.env" });
+config({ path: "../../../apps/pagedeck/server/.env" });
 
 const app = await alchemy("itsukis-products");
 
 export const pagedeckWeb = await TanStackStart("pagedeck-web", {
-  cwd: "../../apps/pagedeck/web",
+  cwd: "../../../apps/pagedeck/web",
   bindings: {
     VITE_SERVER_URL: alchemy.env.PAGEDECK_VITE_SERVER_URL!,
     DATABASE_URL: alchemy.secret.env.PAGEDECK_DATABASE_URL!,
@@ -22,7 +22,7 @@ export const pagedeckWeb = await TanStackStart("pagedeck-web", {
 });
 
 export const pagedeckServer = await Worker("pagedeck-server", {
-  cwd: "../../apps/pagedeck/server",
+  cwd: "../../../apps/pagedeck/server",
   entrypoint: "src/index.ts",
   compatibility: "node",
   bindings: {
