@@ -49,6 +49,7 @@ jobs:
 
       - name: Deploy Application
         run: |
+          echo "$PAGEDECK_VITE_SERVER_URL"
           bun run deploy
         env:
           # Alchemy
