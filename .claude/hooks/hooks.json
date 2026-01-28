@@ -1,0 +1,78 @@
+{
+	"hooks": {
+		"PreToolUse": [
+			{
+				"matcher": "Bash(bun run dev*)",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '💡 Tip: Consider running in tmux for long-running processes'"
+					}
+				]
+			},
+			{
+				"matcher": "Bash(git push*)",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '⚠️ Review your changes before pushing. Run: git diff origin/main...HEAD'"
+					}
+				]
+			},
+			{
+				"matcher": "Write(*.md)",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '📝 Creating markdown file. Ensure this is necessary and not auto-generated.'"
+					}
+				]
+			}
+		],
+		"PostToolUse": [
+			{
+				"matcher": "Edit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "if echo \"$CLAUDE_FILE_PATHS\" | grep -qE '\\.(ts|tsx|js|jsx)$'; then bunx biome check --write $CLAUDE_FILE_PATHS 2>/dev/null || true; fi"
+					}
+				]
+			},
+			{
+				"matcher": "Edit|Write",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "if echo \"$CLAUDE_FILE_PATHS\" | grep -qE '\\.(ts|tsx)$'; then grep -n 'console.log' $CLAUDE_FILE_PATHS 2>/dev/null && echo '⚠️ Warning: console.log found. Remove before committing.' || true; fi"
+					}
+				]
+			},
+			{
+				"matcher": "Bash(gh pr create*)",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '✅ PR created! Remember to request reviews.'"
+					}
+				]
+			}
+		],
+		"Stop": [
+			{
+				"matcher": "*",
+				"hooks": [
+					{
+						"type": "command",
+						"command": "echo '👋 Session ended. Remember to commit your changes!'"
+					}
+				]
+			}
+		]
+	},
+	"_comments": {
+		"PreToolUse": "ツール実行前の確認・提案",
+		"PostToolUse": "ツール実行後の自動処理（フォーマット、警告）",
+		"Stop": "セッション終了時のリマインダー"
+	}
+}

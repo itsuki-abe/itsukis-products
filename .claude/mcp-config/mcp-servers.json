@@ -1,0 +1,48 @@
+{
+	"mcpServers": {
+		"github": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-github"],
+			"env": {
+				"GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+			},
+			"description": "GitHub PR, Issue, リポジトリ操作"
+		},
+		"memory": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-memory"],
+			"description": "セッション間の永続メモリ"
+		},
+		"sequential-thinking": {
+			"command": "npx",
+			"args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+			"description": "推論チェーン"
+		},
+		"filesystem": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@modelcontextprotocol/server-filesystem",
+				"/home/itsuki/workspace/itsukis-products"
+			],
+			"description": "ファイルシステム操作"
+		}
+	},
+	"_comments": {
+		"usage": [
+			"プロジェクトごとに必要なMCPのみ有効化する",
+			"認証情報は実際の値に置き換える",
+			"コンテキストウィンドウ保護のため最大10個程度に制限"
+		],
+		"project_specific": [
+			"GitHubでPR/Issue管理をするため、githubを有効化",
+			"Cloudflare WorkersはAlchemy.run経由で管理（MCP不要）"
+		],
+		"iac": {
+			"tool": "Alchemy.run",
+			"docs": "https://alchemy.run/",
+			"github": "https://github.com/alchemy-run/alchemy",
+			"note": "Cloudflare Workers/R2/HyperDrive等のインフラはAlchemy.runで管理"
+		}
+	}
+}

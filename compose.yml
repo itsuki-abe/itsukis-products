@@ -1,0 +1,19 @@
+services:
+  pagedeck-db:
+    container_name: pagedeck-db
+    image: cockroachdb/cockroach:v25.4.2
+    tty: true
+    stdin_open: true
+    ports:
+      - "26257:26257"
+      - "8080:8080"
+    environment:
+      TZ: Asia/Tokyo
+      COCKROACH_USER: root
+      COCKROACH_PASSWORD: root
+    command: start-single-node --insecure
+    volumes:
+      - "pagedeck-data:/cockroach/cockroach-data"
+
+volumes:
+  pagedeck-data:

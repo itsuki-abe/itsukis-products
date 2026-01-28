@@ -1,0 +1,26 @@
+{
+  "name": "@itsukis-products/pagedeck-auth",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.ts"
+    },
+    "./*": {
+      "default": "./src/*.ts"
+    }
+  },
+  "scripts": {},
+  "dependencies": {
+    "@itsukis-products/pagedeck-db": "workspace:*",
+    "@itsukis-products/pagedeck-env": "workspace:*",
+    "@polar-sh/better-auth": "catalog:",
+    "@polar-sh/sdk": "^0.42.2",
+    "better-auth": "catalog:",
+    "dotenv": "catalog:",
+    "valibot": "catalog:"
+  },
+  "devDependencies": {
+    "@itsukis-products/config": "workspace:*",
+    "typescript": "catalog:"
+  }
+}
