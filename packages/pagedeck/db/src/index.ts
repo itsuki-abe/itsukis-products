@@ -4,7 +4,7 @@ import { relations } from "./relations";
 
 export const db = drizzle({
   connection: {
-    connectionString: env.DATABASE_URL || "",
+    connectionString: env.DB.connectionString || "",
     ssl: true,
   },
   relations,
