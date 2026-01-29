@@ -1,0 +1,112 @@
+---
+import Logo from '@/components/Logo/index.svg';
+---
+
+<nav id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+	<div id="header-inner" class="max-w-7xl mx-auto px-8 h-20 flex items-center justify-between transition-all duration-300">
+		<Logo width={160} />
+		<div class="hidden md:flex items-center gap-9">
+			<a href="#solutions" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Solutions</a>
+			<a href="#features" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Features</a>
+			<a href="#performance" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Performance</a>
+			<a href="#security" class="text-sm text-muted-foreground hover:text-foreground transition-colors">Security</a>
+			<a href="#faq" class="text-sm text-muted-foreground hover:text-foreground transition-colors">FAQ</a>
+		</div>
+		<!-- Mobile menu button -->
+		<button
+			id="mobile-menu-button"
+			class="md:hidden flex items-center justify-center w-10 h-10 text-foreground"
+			aria-label="Toggle menu"
+		>
+			<svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+			</svg>
+			<svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+			</svg>
+		</button>
+	</div>
+</nav>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" class="fixed inset-0 z-40 pointer-events-none md:hidden">
+	<div id="mobile-menu-backdrop" class="absolute inset-0 bg-background/95 backdrop-blur-sm opacity-0 transition-opacity duration-300"></div>
+	<div id="mobile-menu-content" class="relative flex flex-col items-center justify-center h-full gap-8 opacity-0 translate-y-4 transition-all duration-300">
+		<a href="#solutions" class="text-2xl font-medium text-foreground hover:text-muted-foreground transition-colors mobile-menu-link">Solutions</a>
+		<a href="#features" class="text-2xl font-medium text-foreground hover:text-muted-foreground transition-colors mobile-menu-link">Features</a>
+		<a href="#performance" class="text-2xl font-medium text-foreground hover:text-muted-foreground transition-colors mobile-menu-link">Performance</a>
+		<a href="#security" class="text-2xl font-medium text-foreground hover:text-muted-foreground transition-colors mobile-menu-link">Security</a>
+		<a href="#faq" class="text-2xl font-medium text-foreground hover:text-muted-foreground transition-colors mobile-menu-link">FAQ</a>
+	</div>
+</div>
+
+<script>
+	const header = document.getElementById('header');
+	const headerInner = document.getElementById('header-inner');
+	const mobileMenuButton = document.getElementById('mobile-menu-button');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const menuIcon = document.getElementById('menu-icon');
+	const closeIcon = document.getElementById('close-icon');
+	const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+	function updateHeader() {
+		if (window.scrollY > 50) {
+			header?.classList.add('top-4', 'left-4', 'right-4');
+			header?.classList.remove('top-0', 'left-0', 'right-0');
+			headerInner?.classList.add('bg-background/90', 'backdrop-blur-sm', 'rounded-full', 'border', 'border-border', 'max-w-5xl', 'h-16');
+			headerInner?.classList.remove('max-w-7xl', 'h-20');
+		} else {
+			header?.classList.remove('top-4', 'left-4', 'right-4');
+			header?.classList.add('top-0', 'left-0', 'right-0');
+			headerInner?.classList.remove('bg-background/90', 'backdrop-blur-sm', 'rounded-full', 'border', 'border-border', 'max-w-5xl', 'h-16');
+			headerInner?.classList.add('max-w-7xl', 'h-20');
+		}
+	}
+
+	const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+	const mobileMenuContent = document.getElementById('mobile-menu-content');
+	let isMenuOpen = false;
+
+	function openMobileMenu() {
+		isMenuOpen = true;
+		mobileMenu?.classList.remove('pointer-events-none');
+		mobileMenuBackdrop?.classList.remove('opacity-0');
+		mobileMenuBackdrop?.classList.add('opacity-100');
+		mobileMenuContent?.classList.remove('opacity-0', 'translate-y-4');
+		mobileMenuContent?.classList.add('opacity-100', 'translate-y-0');
+		menuIcon?.classList.add('hidden');
+		closeIcon?.classList.remove('hidden');
+		document.body.style.overflow = 'hidden';
+	}
+
+	function closeMobileMenu() {
+		isMenuOpen = false;
+		mobileMenuBackdrop?.classList.add('opacity-0');
+		mobileMenuBackdrop?.classList.remove('opacity-100');
+		mobileMenuContent?.classList.add('opacity-0', 'translate-y-4');
+		mobileMenuContent?.classList.remove('opacity-100', 'translate-y-0');
+		menuIcon?.classList.remove('hidden');
+		closeIcon?.classList.add('hidden');
+		document.body.style.overflow = '';
+		setTimeout(() => {
+			if (!isMenuOpen) {
+				mobileMenu?.classList.add('pointer-events-none');
+			}
+		}, 300);
+	}
+
+	function toggleMobileMenu() {
+		if (isMenuOpen) {
+			closeMobileMenu();
+		} else {
+			openMobileMenu();
+		}
+	}
+
+	updateHeader();
+	window.addEventListener('scroll', updateHeader);
+	mobileMenuButton?.addEventListener('click', toggleMobileMenu);
+	mobileMenuLinks.forEach(link => {
+		link.addEventListener('click', closeMobileMenu);
+	});
+</script>

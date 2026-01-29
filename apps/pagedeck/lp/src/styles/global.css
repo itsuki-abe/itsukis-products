@@ -1,0 +1,5 @@
+@import "@itsukis-products/pagedeck-ui/styles.css";
+
+@theme {
+  --font-sans: var(--font-futura-pt);
+}

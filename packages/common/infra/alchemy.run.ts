@@ -1,5 +1,5 @@
 import alchemy from "alchemy";
-import { TanStackStart, Worker, Hyperdrive } from "alchemy/cloudflare";
+import { Astro, TanStackStart, Worker, Hyperdrive } from "alchemy/cloudflare";
 import { CloudflareStateStore } from "alchemy/state";
 import { config } from "dotenv";
 import { existsSync } from "node:fs";
@@ -7,10 +7,12 @@ import { existsSync } from "node:fs";
 const envPath = "./.env";
 const webEnvPath = "../../../apps/pagedeck/web/.env";
 const serverEnvPath = "../../../apps/pagedeck/server/.env";
+const lpEnvPath = "../../../apps/pagedeck/lp/.env";
 
 existsSync(envPath) && config({ path: envPath });
 existsSync(webEnvPath) && config({ path: webEnvPath });
 existsSync(serverEnvPath) && config({ path: serverEnvPath });
+existsSync(lpEnvPath) && config({ path: lpEnvPath });
 
 const app = await alchemy("itsukis-products", {
   stateStore: (scope) =>
@@ -56,7 +58,21 @@ export const pagedeckServer = await Worker("pagedeck-server", {
   },
 });
 
+export const pagedeckLp = await Astro("pagedeck-lp", {
+  name: "pagedeck-lp",
+  cwd: "../../../apps/pagedeck/lp",
+  bindings: {
+    VITE_LP_ADOBE_FONT_ID: alchemy.env.PAGEDECK_VITE_LP_ADOBE_FONT_ID!,
+    NOCODB_BASE_URL: alchemy.secret.env.PAGEDECK_NOCODB_BASE_URL!,
+    NOCODB_API_TOKEN: alchemy.secret.env.PAGEDECK_NOCODB_API_TOKEN!,
+    NOCODB_BASE_ID: alchemy.secret.env.PAGEDECK_NOCODB_BASE_ID!,
+    NOCODB_WAITLIST_TABLE_ID: alchemy.secret.env.PAGEDECK_NOCODB_WAITLIST_TABLE_ID!,
+    WAITLIST_DISCORD_WEBHOOK_URL: alchemy.secret.env.PAGEDECK_WAITLIST_DISCORD_WEBHOOK_URL!,
+  },
+});
+
 console.log(`PageDeck Web    -> ${pagedeckWeb.url}`);
 console.log(`PageDeck Server -> ${pagedeckServer.url}`);
+console.log(`PageDeck LP     -> ${pagedeckLp.url}`);
 
 await app.finalize();

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520">
+  <rect x="280" width="240" height="240" rx="45" ry="45" fill="var(--primary)" stroke-width="0"/>
+  <rect x="280" y="280" width="240" height="240" rx="120" ry="120" fill="var(--primary)" stroke-width="0"/>
+  <rect width="240" height="520" rx="45" ry="45" fill="var(--primary)" stroke-width="0"/>
+</svg>
