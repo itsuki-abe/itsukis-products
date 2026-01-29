@@ -1,0 +1,16 @@
+---
+import { SecurityCards, SecurityTitle } from './SecurityCards';
+---
+
+<section id="security" class="py-24 px-4">
+	<div class="max-w-7xl mx-auto">
+		<div class="text-center mb-16">
+			<SecurityTitle client:load />
+			<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+				Your data is securely stored with maximum security.
+			</p>
+		</div>
+
+		<SecurityCards client:load />
+	</div>
+</section>

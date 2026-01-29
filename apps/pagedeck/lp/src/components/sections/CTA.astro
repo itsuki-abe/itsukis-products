@@ -1,0 +1,16 @@
+---
+import LogoMark from '@/components/Logo/foreground-mark.svg';
+import { CTAButtons } from './CTAButtons';
+---
+
+<section class="py-24 px-4 bg-primary text-primary-foreground">
+	<div class="max-w-4xl mx-auto text-center">
+    <LogoMark height={96} class="mx-auto mb-8" />
+		<h2 class="text-4xl md:text-5xl font-bold mb-6">Be the first to try PageDeck</h2>
+		<p class="text-xl mb-10 opacity-90 max-w-2xl mx-auto leading-relaxed">
+			Turn your ideas into a branded website with widgets, pages, blog, and analytics. Join the waitlist for early access.
+		</p>
+		<CTAButtons client:load />
+		<p class="text-sm opacity-75 mt-4">No spam, ever. Unsubscribe anytime.</p>
+	</div>
+</section>

@@ -1,0 +1,16 @@
+---
+import { FAQ } from './FAQ';
+---
+
+<section id="faq" class="py-24 px-4 bg-background">
+	<div class="max-w-7xl mx-auto">
+		<div class="text-center mb-16">
+			<h2 class="text-4xl md:text-5xl font-bold text-foreground mb-4">Frequently Asked Questions</h2>
+			<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+				Everything you need to know about PageDeck.
+			</p>
+		</div>
+
+		<FAQ client:load />
+	</div>
+</section>

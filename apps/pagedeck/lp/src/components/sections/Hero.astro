@@ -1,0 +1,41 @@
+---
+import { HeroButtons } from './HeroButtons';
+import { HeroAnimateTitle } from './HeroTitle';
+---
+
+<section class="hero-gradient pt-32 pb-20 px-4">
+	<div class="max-w-6xl mx-auto text-center">
+    <h1 class="mx-auto text-center text-3xl md:text-7xl font-bold text-foreground mb-6 leading-tight max-w-5xl whitespace-pre-line">
+      The simplest way to create{' '}
+			a modern <HeroAnimateTitle client:load />{' '}
+			for Business.
+		</h1>
+
+		<p class="md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+			Create professional websites with widget-based editing. Maintain brand consistency, manage team workflows, and launch faster than ever.
+		</p>
+
+		<HeroButtons client:load />
+		<p class="text-sm text-muted-foreground mt-4 mb-16">Join the waitlist for early access</p>
+
+		<!-- Bento Grid Stats -->
+		<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+			<div class="text-center">
+				<div class="text-4xl font-bold text-foreground mb-2">40+</div>
+				<div class="text-sm text-muted-foreground">Widgets Available</div>
+			</div>
+			<div class="text-center">
+				<div class="text-4xl font-bold text-foreground mb-2">5 min</div>
+				<div class="text-sm text-muted-foreground">Setup Time</div>
+			</div>
+			<div class="text-center">
+				<div class="text-4xl font-bold text-foreground mb-2">100%</div>
+				<div class="text-sm text-muted-foreground">No Code Required</div>
+			</div>
+			<div class="text-center">
+        <div class="text-4xl font-bold text-foreground mb-2">24/7</div>
+				<div class="text-sm text-muted-foreground">Support</div>
+			</div>
+		</div>
+	</div>
+</section>
