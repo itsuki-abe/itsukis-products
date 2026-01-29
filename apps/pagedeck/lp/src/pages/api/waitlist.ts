@@ -4,7 +4,7 @@ export const prerender = false;
 
 const NOCODB_BASE_URL = import.meta.env.NOCODB_BASE_URL;
 const NOCODB_API_TOKEN = import.meta.env.NOCODB_API_TOKEN;
-const _NOCODB_BASE_ID = import.meta.env.NOCODB_BASE_ID;
+const NOCODB_BASE_ID = import.meta.env.NOCODB_BASE_ID;
 const NOCODB_WAITLIST_TABLE_ID = import.meta.env.NOCODB_WAITLIST_TABLE_ID;
 const DISCORD_WEBHOOK_URL = import.meta.env.WAITLIST_DISCORD_WEBHOOK_URL;
 
